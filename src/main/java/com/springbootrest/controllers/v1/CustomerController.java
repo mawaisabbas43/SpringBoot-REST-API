@@ -37,10 +37,15 @@ public class CustomerController {
                 HttpStatus.CREATED);
     }
 
-
     @PutMapping({"/{id}"})
     public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO){
         return new ResponseEntity<CustomerDTO>(customerService.saveCustomerByDTO(id, customerDTO),
+                HttpStatus.OK);
+    }
+
+    @PatchMapping({"/{id}"})
+    public ResponseEntity<CustomerDTO> patchCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO){
+        return new ResponseEntity<CustomerDTO>(customerService.patchCustomer(id, customerDTO),
                 HttpStatus.OK);
     }
 }
