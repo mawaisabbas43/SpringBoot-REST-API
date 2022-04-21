@@ -11,6 +11,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.util.ArrayList;
+
 /*
     URL for UI:http://localhost:8080/swagger-ui/
     URL for Swagger API:http://localhost:8080/v2/api-docs
@@ -39,6 +41,23 @@ public class SwaggerConfig {
                 .contact(new Contact("Awais", "www.test.com", "mawaisabbas43@gmail.com"))
                 .license("Apache licence version 2.0")
                 .build();
+    }
+
+    // Not used. Alternate of above as .apiInfo(metaData());
+    private ApiInfo metaData(){
+
+        Contact contact = new Contact("John Thompson", "https://springframework.guru/about/",
+                "john@springfrmework.guru");
+
+        return new ApiInfo(
+                "Spring Framework Guru",
+                "Spring Framework 5: Beginner to Guru",
+                "1.0",
+                "Terms of Service: blah",
+                contact,
+                "Apache License Version 2.0",
+                "https://www.apache.org/licenses/LICENSE-2.0",
+                new ArrayList<>());
     }
 
     //If UI not working including  //} extends WebMvcConfigurationSupport { //above at class
